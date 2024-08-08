@@ -1,0 +1,314 @@
+/* Global styles */
+
+@font-face {
+  font-family: 'Podkova';
+  src: url('/fonts/Podkova/Podkova-VariableFont_wght.ttf') format('truetype');
+  /* font-display: swap; */
+}
+
+* {
+  /* cursor: none !important; */
+  font-family: 'Podkova', sans-serif;
+  color: #21201C;
+}
+
+html {
+  scroll-behavior: smooth;  
+}
+
+main {
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* padding: 2rem;   */
+  max-width: 1200px;
+  margin: auto;
+}
+
+
+body {
+  font-family: 'Podkova', sans-serif, Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #fcf8eb;
+  color: #333;  
+  /* 2s fade in animation */
+  animation: fadeIn 1s;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  color: #333;
+  margin: 20px 0 10px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin: 32px 0;
+}
+
+h2 {
+  font-size: 2rem;
+  margin: 16px 0 32px 0;
+  text-align: center;
+}
+/* pseudo element with paw.svg icon */
+h2::before {
+  content: '';
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  background-image: url(/paw.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0 10px 0 0;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+p {
+  color: #555;
+  line-height: 1.6;
+  font-size: larger;
+  text-align: center;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.2s;
+  text-align: center;
+}
+
+a:hover {
+  color: #0056b3;
+  /* underline */
+  text-decoration: underline;
+}
+
+ul, ol {
+  list-style: none;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+section {
+  /* max-width: 1200px; */
+  margin: 1rem auto;
+  padding:  0 32px;
+  /* padding: 0 20px; */
+  /* subtle fall in animation from top */
+  animation: fadeIn 1s ease-in-out;
+  margin-bottom: 80px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.split-layout {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.card {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 20px; 
+  border-radius: 2rem;
+  /* box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);  */
+  /* /* different shadow inside */
+  /* box-shadow: inset 0 0 25px rgba(255, 255, 255, 0.05); */
+
+  transition: transform 0.3s;
+}
+
+.card h1, .card h2, .card h3, .card h4, .card h5, .card h6 {
+  /* font-size: 1.5rem; */
+  margin: 0 0;
+}
+
+
+.card:hover {
+  transform: translateY(-3px); /* Slightly reduced hover effect */
+}
+
+/* make card fly in from top left */
+.card.fly-in {
+  animation: flyIn 0.5s ease-in-out;
+}
+
+.card-icon {
+  font-size: 32px;
+}
+
+.card.large {
+  max-width: 600px;
+  border-radius: 2rem;
+  padding: 24px;
+  /* margin: 0 auto; */
+  margin-bottom: 20px;
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+  gap: 16px;
+  background-color: #FFF;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 32px;
+}
+
+/* button animation keyframe */
+
+
+
+
+.button {
+  background-color: inherit;
+  color: #21201C;
+  font-family: 'Podkova', sans-serif;
+  /* font-size: 18px; */
+  font-weight: 600;
+  padding: 16px 20px;
+  /* margin: auto; */
+  border-radius: 16px;
+  border: 0;
+  /* font-weight: bold; */
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  /* animation: fadeIn 3s; */
+  /* cursor: pointer; */
+  /* position: relative; */
+  overflow: hidden; /* Ensures that any pseudo-element remains within the button */
+  display: flex;
+  gap: 4px;
+  width: fit-content;
+  }
+
+/* Pseudo-element with  paw.svg icon */
+
+
+.button.icon::before {
+  content: '';
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  background-image: url(/paw.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0 10px 0 0;
+}
+
+.button.primary {
+  background-color: #A5D9D0;
+  /* outline: 8px solid #A5D9Df33; */
+}
+
+.button.primary.button:hover {
+  background-color: #A5D9D0;
+}
+
+.button.secondary {
+  background-color: #F2CC8F;
+  /* outline: 8px solid #f2cc8f5b; */
+}
+
+.button.secondary.button:hover {
+  background-color: #F2CC8F;
+}
+  
+/* Hover Effect */
+.button:hover {
+  transform: scale(1.05);
+}
+
+
+/* Pseudo-element animation on hover */
+.button:hover::after {
+  opacity: 1;
+  transform: scale(1.3);
+  transition: transform 0.3s, opacity 0.3s;
+  border-radius: inherit; /* Ensures that the pseudo-element takes the same shape as the button */
+}
+
+
+
+/* Input Field Styles */
+.input-field {
+  /* width: 100%; */
+  /* max-width: 400px; */
+  display: flex;
+  width: fit-content;
+  padding: 16px 32px;
+  border: 0;
+  border-radius: 16px;
+  font-size: 1rem;
+  outline: 4px solid #edededad;
+  transition: border-color 0.3s;
+  margin: 12px auto;
+  text-align: center;
+}
+
+.input-field:focus {
+  outline: 4px solid #f2cc8f79;
+}
+
+
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border-left-color: #21201c;
+  animation: spin 1s ease infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+  /* mobile viewport */
+  @media (max-width: 768px) {
+    .split-layout {
+      flex-direction: column;
+    }
+
+  }
