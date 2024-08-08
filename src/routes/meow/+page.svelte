@@ -56,7 +56,7 @@
 </script>
 
 <main>
-  <section class="signup-section">
+  <section class="signup-section split-layout">
           <!-- Login Form Card -->
       <div id="login" class="card large">
         <h2>Login</h2>
@@ -143,7 +143,7 @@
   .signup-section {
     border-radius: 12px;
     display: flex;
-    flex-direction: row;
+    /* flex-direction: row; */
     gap: 36px;
     justify-content: center;
   
