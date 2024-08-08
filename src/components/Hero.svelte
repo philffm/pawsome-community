@@ -50,11 +50,14 @@
 .marquee-text {
     display: inline-block;
     white-space: nowrap;
-    font-size: 4rem; /* Adjust font size as needed */
+    font-size: 3rem;
     font-family: 'Linebeam';
+    /* font-style: italic; */
     margin-bottom: 1rem;
     color: #ffffff;
-    animation: marquee 10s linear infinite;
+    animation: marquee 8s linear infinite;
+    outline: 4px solid;
+    background: black;
 }
 
 @keyframes marquee {
