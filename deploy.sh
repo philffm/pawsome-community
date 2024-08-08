@@ -19,6 +19,6 @@ npm run build || { echo "Failed to build the project"; exit 1; }
 
 # Start the production server
 echo "Starting the production server..."
-npm run preview || { echo "Failed to start the server"; exit 1; }
+npm run preview --host || { echo "Failed to start the server"; exit 1; }
 
 echo "Deployment successful!"
