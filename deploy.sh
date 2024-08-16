@@ -12,6 +12,10 @@ fi
 # Define variables
 BRANCH="main" # or any other branch you want to deploy
 
+# Reset local changes
+echo "Resetting local changes..."
+git reset --hard HEAD
+
 # Pull the latest changes from the repository
 echo "Pulling latest changes from the repository..."
 git pull
