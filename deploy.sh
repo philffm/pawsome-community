@@ -1,13 +1,20 @@
 #!/bin/bash
 
+# Check if Node.js is installed
+if ! command -v node &> /dev/null; then
+  echo "Node.js is not installed. Installing the latest version..."
+  curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+  . ~/.nvm/nvm.sh
+  nvm install 21
+  nvm use 21
+fi
+
 # Define variables
 BRANCH="main" # or any other branch you want to deploy
 
 # Pull the latest changes from the repository
 echo "Pulling latest changes from the repository..."
-# git pull $REPO_URL $BRANCH || { echo "Failed to pull changes"; exit 1; }
 git pull
-
 
 # Install dependencies
 echo "Installing dependencies..."
