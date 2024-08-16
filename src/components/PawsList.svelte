@@ -9,19 +9,17 @@
 
 <main>
     <!-- <pre> users: {JSON.stringify(users, null, 2)}</pre> -->
-    <ul class="grid">
+    <div class="cards-grid">
         {#each users as user}
             <li class="card"  key={user.id} on:click={() => window.location.href = `/paws/${user.id}`}>
                 <div class="card-content">
-                     <!-- <img src = {`https://supa.ueee.eu/api/files/_pb_users_auth_/${user.id}/${user.avatar}`} alt = {user.name} /> -->
-
                     <h2>{user.name}</h2>
                     <p>{user.description}</p>
-                    <p>📍 {user.expand.location.city}, {user.expand.location.country} 
+                    <p>📍 {user.expand.userLocation?.city}, {user.expand.userLocation?.country} </p>
                 </div>
             </li>
         {/each}
-    </ul>
+    </div>
 </main>
 
 <style>
@@ -29,14 +27,6 @@
         padding: 20px;
         max-width: 1200px;
         margin: 0 auto;
-    }
-
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjust for responsive design */
-        gap: 20px;
-        padding: 0;
-        list-style: none;
     }
 
 

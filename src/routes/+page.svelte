@@ -62,8 +62,8 @@
         }
         
         .team-photo {
-          width: 150px;
-          height: 150px;
+          width: 30%;
+          height: 30%;
           border-radius: 50%;
           object-fit: cover;
           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -96,11 +96,7 @@
 
     
 
-  main {
-      max-width: 1200px;
-      margin: auto;
-      padding: 2rem;
-  }
+
 
       
 </style>

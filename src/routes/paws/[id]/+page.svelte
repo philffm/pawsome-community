@@ -20,7 +20,7 @@
   
     onMount(async () => {
       const { data, error } = await fetchData('users', id, {
-        expand: 'location, services, preferredLocations',
+        expand: 'userServices, userLocation, preferredLocations',
       });
   
       user = data || {};
@@ -41,9 +41,8 @@
     {#if user}
     <UserAbout user={user} />
     {/if}
-  
-    {#if user.expand.services}
-    <UserServices services={user.expand.services} />
+    {#if user.expand.userServices}
+    <UserServices services={user.expand.userServices} />
     {/if}
   
     {#if user.expand.preferredLocations}
@@ -56,10 +55,7 @@
   
   <style>
     /* Page-specific styles */
-    .spinner {
-      /* spinner styles */
-    }
-  
+
     .error {
       color: red;
     }

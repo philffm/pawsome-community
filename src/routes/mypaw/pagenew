@@ -1,0 +1,110 @@
+<script>
+  import { onMount } from 'svelte';
+  import { pocketbase } from '$lib/stores/pocketbase';
+  import { fetchData, fetchFullList } from '$lib/utils/fetchData';
+  import { get } from 'svelte/store';
+
+  import UserHeader from '../../components/UserHeader.svelte';
+  import UserSettingsBasic from '../../components/UserSettingsBasic.svelte';
+  import UserSettingsPlatform from '../../components/UserSettingsPlatform.svelte';
+
+  let user = {};
+  let isLoading = true;
+  let errorMessage = '';
+  let locations = [];
+  let successMessage = '';
+
+  const pb = get(pocketbase);
+
+  onMount(async () => {
+    await fetchUserData();
+    await fetchLocations();
+  });
+
+  async function fetchUserData() {
+    const { data, error } = await fetchData('users', pb.authStore.model.id, {
+      expand: 'location, services, preferredLocations',
+    });
+    if (error) {
+      errorMessage = error;
+    } else {
+      user = data;
+      isLoading = false;
+    }
+  }
+
+  async function fetchLocations() {
+    const { data, error } = await fetchFullList('locations');
+    if (error) {
+      errorMessage = error;
+    } else {
+      locations = data;
+    }
+  }
+
+  async function updateUserDetails(updatedUserData) {
+    try {
+      const updatedUser = await pb.collection('users').update(user.id, updatedUserData);
+      user = updatedUser;
+      successMessage = 'Profile updated successfully!';
+    } catch (error) {
+      errorMessage = `Failed to update user details: ${error.message}`;
+    }
+  }
+
+  function handleLogout() {
+    pb.authStore.clear();
+    window.location.href = '/login';
+  }
+</script>
+
+<main>
+  <section id="mypaw" class="mypaw-section">
+    <h1>My Paw</h1>
+    <p>Welcome to your account page. Here you can manage your profile and settings.</p>
+    
+    {#if isLoading}
+      <div class="spinner"></div>
+      <p>Loading user data...</p>
+    {:else}
+      <div class="user-page">
+        {#if errorMessage}
+          <p class="error">{errorMessage}</p>
+        {/if}
+
+        {#if successMessage}
+          <p class="success">{successMessage}</p>
+        {/if}
+
+        <UserHeader {user} />
+
+        <div class="split-layout">
+          <UserSettingsBasic {user} on:save={updateUserDetails} on:logout={handleLogout} />
+          <UserSettingsPlatform {user} {locations} on:save={updateUserDetails} />
+        </div>
+      </div>
+    {/if}
+  </section>
+</main>
+
+
+<style>
+
+
+
+  .avatar-preview img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+
+</style>

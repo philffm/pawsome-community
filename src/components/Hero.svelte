@@ -20,12 +20,17 @@
     overflow: hidden;
     max-width: 1200px;
     border-radius: 4rem;
-    padding: 0;
     flex-direction: column-reverse;
-    margin-top: -120px;
+    margin-top: -25px;
+    /* margin-top: -89px; */
     z-index: 1;
     /* box-shadow: 0 0 25px rgba(0, 0, 0, 0.05); */
+}
 
+@media (max-width: 768px) {
+    .hero {
+        height: 200px;
+    }
 }
 
 .hero-image {
@@ -38,9 +43,17 @@
     z-index: -1;
     /* filter: brightness(.8) contrast(1); */
     opacity: 0.75;
+    outline: solid 4px #ffffff;
     
 }
 
+
+@media (max-width: 768px) {
+    .hero-image {
+        /* image a bit further up  */
+        margin-top: -50px;
+    }
+}
 
 @font-face {
     font-family: 'Linebeam';
@@ -71,7 +84,7 @@
 
 @media (max-width: 768px) {
     .marquee-text {
-        font-size: 3rem;
+        font-size: 2rem;
     }
 }
 

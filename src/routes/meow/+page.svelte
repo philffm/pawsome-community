@@ -56,7 +56,7 @@
 </script>
 
 <main>
-  <section class="signup-section split-layout">
+  <section class="split-layout">
           <!-- Login Form Card -->
       <div id="login" class="card large">
         <h2>Login</h2>
@@ -79,13 +79,13 @@
         <h2>Join the Meow-ement</h2>
         <div class="toggle-buttons">
           <button
-          class="button {isBusiness ? '' : 'primary'}"
+          class="button {isBusiness ? '' : 'premium'}"
           on:click|preventDefault={() => toggleUserType('individual')}
           >
           💁  Individual
           </button>
           <button
-          class="button {isBusiness ? 'primary' : ''}"
+          class="button {isBusiness ? 'premium' : ''}"
           on:click|preventDefault={() => toggleUserType('business')}
           >
           🏢  Business / B2B
@@ -140,23 +140,6 @@
     height: fit-content;
   }
 
-  .signup-section {
-    border-radius: 12px;
-    display: flex;
-    /* flex-direction: row; */
-    gap: 36px;
-    justify-content: center;
-  
-  }
-
-
-
-  .description {
-    /* margin-bottom: 20px; */
-    color: #333;
-    font-size: 1rem;
-    line-height: 1.6;
-  }
 
   .fade-in {
     opacity: 0;
@@ -197,10 +180,6 @@
     /* padding: 24px; */
     gap: 12px;
     margin: auto;
-  }
-
-  .toggle-buttons button {
-    /* color: white; */
   }
 
 

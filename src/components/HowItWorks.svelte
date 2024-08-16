@@ -1,6 +1,6 @@
 <section id="about" class="how-it-works ">
     <h2>How It Works</h2>
-    <div class="steps">
+    <div class="steps slider">
       <div class="card">
         <span class="step-number">1</span>
         <h3>Sign Up</h3>
@@ -30,7 +30,7 @@
 }
 
 .card {
-  flex-direction: row;
+  /* flex-direction: row; */
   gap: 8px;
 }
 
@@ -46,6 +46,12 @@
   /* font-family: 'Linebeam'; */
   color: #a5d9d0;
   font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  .step-number {
+    font-size: 2rem;
+  }
 }
 
 

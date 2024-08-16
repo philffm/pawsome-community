@@ -18,7 +18,7 @@
   export const teamsURL = "https://teams.microsoft.com/l/chat/0/0?users=" + email;
 
   // Handle location if available
-  const location = user.expand?.location ? `🇩🇪 ${user.expand.location.city}, ${user.expand.location.country}` : "Location not available";
+  const userLocation = user.expand?.userLocation ? `🇩🇪 ${user.expand.userLocation.city}, ${user.expand.userLocation.country}` : "Location not available";
 </script>
 
 <section class="about-section">
@@ -29,11 +29,12 @@
     <div class="about-content">
       <img src={image} alt="{name} with cat" class="about-image" />
       <div class="about-text">
+        <p class="location">From {userLocation}</p>
         <p>{description}</p>
-        <p class="quote">{quote}</p>
-        <p class="location">{location}</p>
+        <!-- <p class="quote">{quote}</p> -->
         <div class="buttons">
-          <button class="button primary" on:click={() => window.location.href = '#services'}>Services</button>
+          <!-- <button class="button primary" on:click={() => window.location.href = '#services'}>Services</button>
+          <button class="button primary" on:click={() => window.location.href = '#location'}>Locations</button> -->
           <button class="button secondary" on:click={() => window.open(teamsURL, '_blank')}>Contact on Teams</button>
         </div>
       </div>
@@ -51,10 +52,11 @@
   .about-content {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    /* justify-content: space-between; */
     gap: 30px;
-    max-width: 800px;
-    margin: auto;
+    /* max-width: 800px; */
+    /* margin: auto; */
   }
 
   .about-image {
@@ -74,12 +76,12 @@
   }
 
   .quote {
-    margin-top: 20px;
+    /* margin-top: 20px; */
     font-weight: bold;
   }
 
   .location {
-    margin-top: 10px;
+    /* margin-top: 10px; */
     font-style: italic;
     color: #777;
   }

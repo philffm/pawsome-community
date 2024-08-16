@@ -4,6 +4,7 @@
     import Header from '../components/Header.svelte';
     import Footer from '../components/Footer.svelte';
     import CustomCursor from '../components/CustomCursor.svelte';
+    import DynamicBackground from '../components/DynamicBackground.svelte';
     import { pocketbase, initializePocketBase } from '$lib/stores/pocketbase';
     import { onMount } from 'svelte';
     import { get } from 'svelte/store';
@@ -32,14 +33,12 @@
 
 <!-- Add global styles here -->
 <!-- <style>
-  main {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+
 </style> -->
 
 <!-- Global components -->
 <Header />
 <CustomCursor />
+<!-- <DynamicBackground /> -->
 <slot />
 <Footer />

@@ -4,6 +4,9 @@
   import { fetchData, fetchFullList } from '$lib/utils/fetchData';
   import { get } from 'svelte/store';
 
+  import UserHeader from '../../components/UserHeader.svelte';
+
+
   let user = {};
   let isLoading = true;
   let errorMessage = '';
@@ -17,6 +20,7 @@
   let preferredLocations = [];
   let verified = false;
   let successMessage = '';
+  // writable object availabilityData to store availability data
 
   let searchQuery = '';
   let searchResults = [];
@@ -125,8 +129,6 @@
 
 <main>
   <section id="mypaw" class="mypaw-section">
-    <h1>My Paw</h1>
-    <p>Welcome to your account page. Here you can manage your profile and settings.</p>
   {#if isLoading}
     <div class="spinner"></div>
     <p>Loading user data...</p>
@@ -141,13 +143,12 @@
         <p class="success">{successMessage}</p>
       {/if}
 
+      <UserHeader user={user} />
+
       <div class="split-layout">
         <div class="card">
           <h2>Basic Settings</h2>
-          <div class="avatar-preview">
-            <img src={updatedAvatar ? `/path/to/avatars/${updatedAvatar}` : '/path/to/default-avatar.png'} alt="Avatar Preview" />
-          </div>
-
+          <p><strong>Verified:</strong> {verified ? 'Yes' : 'No'}</p>
           <label for="avatar">Avatar:</label>
           <input
             id="avatar"
@@ -247,11 +248,12 @@
             {/if}
           </div>
 
-          <p><strong>Verified:</strong> {verified ? 'Yes' : 'No'}</p>
         <button class="button primary  icon" on:click|preventDefault={updateUserDetails}>Update Profile</button>
         </div>
       </div>
 
+
+      <!-- <AvailabilityCalendar bind:availabilityData /> -->
 
       <!-- <h2>Debugging Information</h2>
       <pre>{JSON.stringify(user, null, 2)}</pre> -->
@@ -263,17 +265,6 @@
 <style>
 
 
-
-  .user-page {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-
-
-  .card {
-    padding: 2em;
-  }
 
   .avatar-preview img {
     width: 100px;
@@ -292,15 +283,6 @@
     margin-bottom: 10px;
   }
 
-  .spinner {
-    margin: 0 auto;
-    border: 4px solid rgba(0, 0, 0, 0.1);
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    border-left-color: #09f;
-    animation: spin 1s linear infinite;
-  }
 
   .preferred-locations {
     display: flex;

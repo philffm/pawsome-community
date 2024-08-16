@@ -44,18 +44,18 @@
 <section id="services" class="services-section">
   <div class="container">
     <h2>Pet Services</h2>
-    <div class="pet-services-grid">
+    <div id="pet-services" class="cards">
       {#each petServices as { title, description, icon, category }}
         <div class="card">
           <div class="card-icon">{icon}</div>
           <h3>{title}</h3>
-          <p>{description}</p>
+          <!-- <p>{description}</p> -->
         </div>
       {/each}
     </div>
 
     <h2>General Services</h2>
-    <div class="services-grid">
+    <div class="cards-grid">
       {#each filteredServices as { title, description, icon, category }}
         <div class="card">
           <div class="card-icon">{icon}</div>
@@ -68,18 +68,34 @@
 </section>
 
 <style>
-  .services-section {
-    padding: 40px 0;
-    text-align: center;
+
+  /* display pet-services smaller in a row and make the cards smaller */
+  
+  #pet-services {
+    display: flex;
+    flex-direction: row;
+    /* scrollable  */
+    overflow-x: auto;
+    gap: 20px;
+    justify-content: center;
+
+  }
+
+  #pet-services .card {
+    min-width: 120px;
+    
+  }
+
+  #pet-services h3 {
+    font-size: 1rem;
+  }
+  .cards-grid {
     max-width: 800px;
+    margin: auto;
   }
 
-  .services-grid,
-  .pet-services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Smaller min-width */
-    gap: 24px; /* Reduced gap between cards */
-    margin-top: 24px; /* Reduced margin */
+  .cards {
+    max-width: 800px;
+    margin: auto;
   }
-
 </style>

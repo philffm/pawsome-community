@@ -74,7 +74,7 @@
     <div class="location-details">
     {#each Object.entries(groupLocationsByRegionAndCountry(filterLocations(preferredLocations, searchQuery))) as [region, countries]}
       <h3 class="region">{region.toUpperCase()}</h3>
-      <div class="location-tiles">
+      <div class="cards-grid">
         {#each Object.entries(countries) as [country, cities]}
           <div class="card">
             <div class="tile-content">
@@ -90,14 +90,13 @@
 </section>
 
 <style>
-  .locations-section {
-    background-color: #FAF6E8;
+  /* .locations-section {
     text-align: center;
     border-radius: 6rem;
     margin: auto;
     max-width: 1200px;
     padding: 40px;
-  }
+  } */
 
   .location-details {
     max-width: 800px;
@@ -105,26 +104,7 @@
     text-align: left;
   }
 
-  .location-tiles {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 15px;
-    margin-bottom: 30px;
-  }
 
-  .tile {
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    cursor: pointer;
-  }
-
-  .tile:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  }
 
   .tile-content {
     display: flex;
@@ -140,7 +120,8 @@
 
   .country-name {
     font-weight: bold;
-    color: #0073aa;
+    font-size: 1.2rem;
+    /* color: #0073aa; */
     margin-bottom: 5px;
   }
 
@@ -148,11 +129,6 @@
     color: #333;
     font-style: italic;
     margin-bottom: 5px;
-  }
-
-  .regions {
-    color: #555;
-    font-size: 0.8rem;
   }
 
   h2 {
@@ -163,8 +139,8 @@
 
   h3.region {
     font-size: 1.5rem;
-    margin-top: 20px;
-    margin-bottom: 10px;
+    margin-top: 24px;
+    margin-bottom: 20px;
     color: #333;
     text-transform: uppercase;
   }

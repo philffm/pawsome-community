@@ -15,7 +15,7 @@
 
     try {
       const fetchedUsers = await pb.collection('users').getFullList({
-        expand: 'location', // Expand the location field
+        expand: 'userLocation', // Expand the location field
         sort: '-created',
       });
 

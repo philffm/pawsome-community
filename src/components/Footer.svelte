@@ -51,4 +51,12 @@
   .footer p {
     font-size: 0.9rem;
   }
+
+  /* mobile make some more space in the bottom */
+
+  @media (max-width: 768px) {
+    .footer {
+      padding-bottom: 120px;
+    }
+  }
 </style>
