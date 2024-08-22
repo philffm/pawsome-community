@@ -21,7 +21,7 @@
     max-width: 1200px;
     border-radius: 4rem;
     flex-direction: column-reverse;
-    margin-top: -25px;
+    /* margin-top: -25px; */
     /* margin-top: -89px; */
     z-index: 1;
     /* box-shadow: 0 0 25px rgba(0, 0, 0, 0.05); */

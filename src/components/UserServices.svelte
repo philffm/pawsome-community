@@ -41,36 +41,35 @@
   let petServices = services.filter(service => service.category === 'pet');
 </script>
 
-<section id="services" class="services-section">
-  <div class="container">
-    <h2>Pet Services</h2>
-    <div id="pet-services" class="cards">
-      {#each petServices as { title, description, icon, category }}
-        <div class="card">
-          <div class="card-icon">{icon}</div>
-          <h3>{title}</h3>
-          <!-- <p>{description}</p> -->
-        </div>
-      {/each}
-    </div>
+<section id="services">
+  <h2>Pet Services</h2>
+  <div id="pet-services" class="cards">
+    {#each petServices as { title, description, icon, category }}
+      <div class="card">
+        <div class="card-icon">{icon}</div>
+        <h3>{title}</h3>
+        <!-- <p>{description}</p> -->
+      </div>
+    {/each}
+  </div>
 
-    <h2>General Services</h2>
-    <div class="cards-grid">
-      {#each filteredServices as { title, description, icon, category }}
-        <div class="card">
-          <div class="card-icon">{icon}</div>
-          <h3>{title}</h3>
-          <p>{description}</p>
-        </div>
-      {/each}
-    </div>
+  <h2>General Services</h2>
+  <div class="cards-grid">
+    {#each filteredServices as { title, description, icon, category }}
+      <div class="card">
+        <div class="card-icon">{icon}</div>
+        <h3>{title}</h3>
+        <p>{description}</p>
+      </div>
+    {/each}
   </div>
 </section>
 
 <style>
 
   /* display pet-services smaller in a row and make the cards smaller */
-  
+
+
   #pet-services {
     display: flex;
     flex-direction: row;
@@ -78,7 +77,7 @@
     overflow-x: auto;
     gap: 20px;
     justify-content: center;
-
+    margin-bottom: 36px;
   }
 
   #pet-services .card {
